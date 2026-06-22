@@ -1,6 +1,25 @@
 # Obsidian Note Types
 
-Use this reference when a note belongs to a recurring business, project, case, or archive category. The default template still applies; these patterns decide what the `Key points` section should contain.
+Use this reference when a note belongs to a recurring business, project, case, or archive category. For work-project archive notes, the goal is not a pointer or abstract summary. The note should preserve the original material's substantive content so the reader can understand and reuse it without reopening the source file.
+
+## Work-Project Archive Standard
+
+Use this standard for 社群和会员运营、营销策划、商业运营、品牌活动、线上产品开发 and similar business materials.
+
+Required body logic:
+
+1. `原始内容完整整理`: preserve the source's storyline, sections, facts, data, claims, decisions, and conclusions in readable structure.
+2. `机制 / 模式`: extract operating mechanisms, business models, workflows, frameworks, role division, data loops, or governance patterns when present.
+3. `案例 / 对比`: capture concrete cases, regional samples, benchmark comparisons, before/after contrasts, or execution examples when present.
+4. `可复制启示`: convert the material into reusable writing structures, templates, checklists, operating playbooks, or replication conditions.
+
+Quality bar:
+
+- Page, slide, sheet, or paragraph references are evidence only; they must not replace substantive content.
+- Avoid generic `Workflow / Method` headings unless the source itself is a workflow note.
+- Do not include `Next actions` unless the note is an active task plan. Archived work-project notes should focus on content completeness and reuse.
+- Prefer tables for data, mechanisms, comparisons, role division, and reusable templates.
+- Preserve enough examples and details that the note can serve as the working copy inside Obsidian.
 
 ## Business Domain Templates
 
@@ -8,66 +27,56 @@ Use this reference when a note belongs to a recurring business, project, case, o
 
 Use for 社群运营, 会员运营, 主理人运营, 私域运营, regional community operations, and member activity systems.
 
-Recommended `Key points`:
+Required content emphasis:
 
-- 业务目标：增长、留资、活跃、到访、成交、口碑、降本等。
-- 人群与分层：业主、准业主、会员、主理人、商家、区域团队。
-- 触点与工具：小程序、企微、社群、活动报名、积分、会员权益。
-- 运营机制：招募、分层、激励、活动、主理人共创、退出机制。
-- 数据结果：用户、留电、报备、到访、成交、活动数、投入、成本变化。
-- 可复制做法：适用条件、资源要求、团队配置、风险边界。
+- 原始内容完整整理：业务目标、平台/项目背景、人群分层、触点工具、活动/IP/权益内容、数据结果、组织协同。
+- 机制 / 模式：会员体系、积分权益、主理人机制、在地机构、社群招募、活动报名核销、内容沉淀、线索流转、数据看板。
+- 案例 / 对比：区域样本、项目样板、IP 活动、不同城市/社群/人群的表现差异。
+- 可复制启示：社群年度复盘结构、活动 IP 模板、主理人招募和激励模板、会员积分运营模板、项目上线 checklist。
 
 ### Marketing Planning
 
 Use for 营销策划, campaign planning, launch planning, channel strategy, creative strategy, and integrated promotion.
 
-Recommended `Key points`:
+Required content emphasis:
 
-- 背景与问题：市场阶段、客户痛点、销售/传播挑战。
-- 目标客群：核心客群、触达场景、决策阻力。
-- 策略主张：主题、卖点、传播钩子、差异化表达。
-- 渠道与节奏：线上、线下、媒体、社群、私域、节点排期。
-- 资源与预算：素材、人员、场地、投放、合作资源。
-- 指标与复盘：曝光、线索、到访、转化、成本、沉淀资产。
+- 原始内容完整整理：市场阶段、客户痛点、销售/传播挑战、客群洞察、策略主张、卖点、渠道、节奏、资源、预算、指标。
+- 机制 / 模式：整合传播路径、客户转化漏斗、内容分发机制、节点排期、线索承接、跨部门协同。
+- 案例 / 对比：竞品对标、不同渠道表现、不同客群响应、优秀话术/视觉/活动案例。
+- 可复制启示：营销方案结构、Campaign briefing 模板、渠道节奏表、卖点提炼方法、复盘指标表。
 
 ### Commercial Operations
 
 Use for 商业运营, space operations, tenant/member operations, retail/community commercial projects, and offline business cases.
 
-Recommended `Key points`:
+Required content emphasis:
 
-- 经营场景：项目、空间、客群、消费频次、动线。
-- 资源结构：品牌、商户、社群、物业、外部合作。
-- 运营动作：招商、活动、会员、内容、场景化运营。
-- 数据表现：客流、销售、留存、复购、租金、活动投入产出。
-- 风险与约束：资源不足、团队配置、长期维护成本。
-- 复制条件：适合项目、必要资源、最低执行标准。
+- 原始内容完整整理：项目/空间背景、客群、动线、消费场景、品牌/商户/物业/社群资源、招商与运营动作、经营数据。
+- 机制 / 模式：空间运营模型、招商机制、会员运营、活动带客、内容场景化、租金/销售/客流联动。
+- 案例 / 对比：商户组合、空间样板、业态对比、活动前后数据、不同项目运营差异。
+- 可复制启示：空间运营模板、招商资源表、活动带客模型、会员复购机制、最低执行标准。
 
 ### Brand Event Retrospective
 
 Use for 品牌活动, IP 活动, 发布会, 线下活动, member events, and campaign retrospectives.
 
-Recommended `Key points`:
+Required content emphasis:
 
-- 活动目标：品牌、线索、销售、客户关系、媒体声量。
-- 体验设计：主题、内容、流程、空间、互动、嘉宾。
-- 执行复盘：排期、供应商、人员、预算、现场问题。
-- 传播资产：图文、视频、媒体、社群、KOL、二次传播。
-- 数据结果：报名、到场、互动、转化、曝光、成本。
-- 可复用资产：SOP、物料、供应商、话术、风险清单。
+- 原始内容完整整理：活动目标、主题、内容、流程、空间、互动、嘉宾、排期、人员、预算、供应商、传播、数据结果。
+- 机制 / 模式：活动策划机制、现场执行机制、用户动线、传播二次利用、社群/会员承接、风险管理。
+- 案例 / 对比：活动现场亮点、问题复盘、不同场次/城市/人群表现、竞品或历史活动对比。
+- 可复制启示：活动复盘模板、SOP、物料清单、供应商清单、风险清单、传播资产复用结构。
 
 ### Online Product Development
 
 Use for 线上产品开发, 小程序, 会员系统, AI/product tools, dashboards, and operational platforms.
 
-Recommended `Key points`:
+Required content emphasis:
 
-- 用户问题：谁在什么场景下遇到什么问题。
-- 产品目标：业务指标、效率指标、体验指标。
-- 功能模块：核心功能、权限、数据入口、后台能力。
-- 数据链路：字段、事件、来源、统计口径、看板。
-- 迭代计划：MVP、验证、后续版本、风险。
-- 验收指标：可用性、数据正确性、业务结果、运营反馈。
+- 原始内容完整整理：用户问题、业务目标、产品定位、功能模块、权限、后台能力、数据链路、运营流程、指标和版本变化。
+- 机制 / 模式：用户身份体系、权限体系、数据事件、积分/权益/支付/核销链路、运营看板、审核流程、系统联通。
+- 案例 / 对比：区域/项目上线案例、功能使用数据、版本前后变化、竞品或旧流程对比。
+- 可复制启示：产品 PRD 摘要模板、上线 checklist、数据指标表、后台配置说明、运营培训结构。
 
 ## Structural Note Types
 
@@ -75,7 +84,7 @@ Recommended `Key points`:
 
 Use when the note analyzes one or more concrete cases.
 
-Include: case background, model, actions, data, outcomes, why it worked, replication conditions, and caveats.
+Include: case background, full case facts, model, actions, data, outcomes, why it worked, comparison when relevant, replication conditions, and caveats.
 
 ### MOC / Index
 

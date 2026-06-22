@@ -69,6 +69,8 @@ Render context as an Obsidian callout immediately after `## Context`:
 
 Keep this block compact. It should orient the reader, not duplicate the whole note.
 
+If the user provided a WeChat or other platform URL, include the exact original URL in `Context` as a visible source bullet. Also repeat it in `Key references` for evidence tracking.
+
 ## 摘要
 
 Add exactly three bullets in an Obsidian callout after `Key takeaway` and before `Context`.
@@ -93,6 +95,9 @@ Each bullet should fit on one line when possible. Do not duplicate the full Key 
 - Use tables for reusable configuration, option comparison, and "what to do next" matrices.
 - Keep local paths and command names exact.
 - Include a Mermaid diagram only if it compresses a process or dependency chain.
+- For business/project archive notes, preserve the original material's substantive content in the main body. Do not write a pointer note that only tells the reader where to look in the original file.
+- For work-project materials such as 社群和会员运营、营销策划、商业运营、品牌活动、线上产品开发, prefer `原始内容完整整理`, `机制 / 模式`, `案例 / 对比`, and `可复制启示` over generic `Key points` or `Workflow / Method`.
+- Do not include `Next actions` in archived work-project notes unless the user explicitly asks for an action plan or the note is an active project tracker.
 
 ## 后续可复用关键信息
 
@@ -191,6 +196,8 @@ Before writing or updating a note, verify:
 - `Key takeaway` has one strong reusable conclusion sentence and one practical explanation paragraph.
 - `摘要` has exactly three scan-friendly bullets.
 - `Context` orients the reader without repeating the whole note.
+- User-provided WeChat or other platform URLs appear in `Context` and `Key references`.
+- Business/project archive notes contain enough original substance that the reader does not need to reopen the source file for core content.
 - `后续可复用关键信息` contains reusable facts, not generic caveats.
 - `Key references` contains external evidence, local files, repo paths, user URLs, or API endpoints.
 - `文件引用` contains internal Obsidian wiki links only.

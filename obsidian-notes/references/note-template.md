@@ -11,8 +11,8 @@ created_method: conversation-to-obsidian-note
 source: conversation
 project: ""
 topic: ""
-note_type: agent-workflow
-knowledge_type: workflow
+note_type: project-note
+knowledge_type: project-context
 status: captured
 confidence: medium
 related_projects: []
@@ -34,9 +34,9 @@ tags:
 ## 摘要
 
 > [!summary] 摘要
-> - 优先路径：
-> - 验证闭环：
-> - 主要坑点：
+> - 核心内容：
+> - 关键机制：
+> - 可复用价值：
 
 ## Context
 
@@ -45,53 +45,73 @@ tags:
 > - 目标：
 > - 当前状态：
 > - 适用范围：
+> - 用户提供的 URL：如有微信或其他平台链接，必须在这里保留原始 URL。
 
 ## Key points
 
-### 子标题 1
+Use `Key points` only for short notes or technical/workflow notes. For business/project archive notes, prefer the fuller structure below instead of generic `Key points`.
 
-- 关键信息：
-- 核心做法：
-- 注意事项：
+## 原始内容完整整理
 
-### 子标题 2
+### 材料主线
 
-- 决策：
-- 依据：
-- 结果：
+- 这份材料要解决的问题：
+- 材料的核心叙事或论证结构：
+- 主要事实、数据、结论：
 
-## Workflow / Method
+### 关键内容模块
 
-```mermaid
-flowchart TD
-  A["输入上下文"] --> B["提取主题、事实、决策"]
-  B --> C["整理为标准 Obsidian 笔记"]
-  C --> D["写入并读回验证"]
-```
+- 模块 1：
+- 模块 2：
+- 模块 3：
+
+## 机制 / 模式
+
+Omit this section only when the source truly has no mechanism, model, operating method, process, or framework.
+
+| 机制/模式 | 具体做法 | 适用条件 | 价值 |
+|---|---|---|---|
+|  |  |  |  |
+
+## 案例 / 对比
+
+Omit this section only when the source has no concrete case, regional sample, benchmark, comparison, or example.
+
+| 案例/对象 | 做法/表现 | 结果/差异 | 可借鉴点 |
+|---|---|---|---|
+|  |  |  |  |
+
+## 可复制启示
+
+### 写作结构
+
+- 可复用标题/叙事方式：
+- 推荐展开顺序：
+- 适合复用的表达：
+
+### 模板化做法
+
+| 场景 | 可复制做法 | 必要条件 | 注意事项 |
+|---|---|---|---|
+|  |  |  |  |
 
 ## 后续可复用关键信息
 
-### 环境与入口
+For business/project archive notes, use this section for stable reusable facts and business reuse patterns. For technical/Agent workflow notes, use the environment and validation tables.
+
+### 来源与归档
 
 | 项 | 值 | 用途 |
 |---|---|---|
-| Vault 路径 |  |  |
-| API endpoint |  |  |
-| MCP endpoint |  |  |
-| 配置键 |  |  |
+| 原始文件/URL |  | 来源定位 |
+| 归档目录 |  | Obsidian 存放位置 |
+| 适用模板 |  | 后续同类资料整理 |
 
-### 迁移与验证
+### 复用口径
 
-| 检查项 | 标准 | 失败时处理 |
+| 复用对象 | 可复用内容 | 使用条件 |
 |---|---|---|
-| 健康检查 |  |  |
-| 工具列表 |  |  |
-| 写入读回 |  |  |
-| 已知坑点 |  |  |
-
-## Next actions
-
-- [ ] 
+|  |  |  |
 
 ## Key references
 

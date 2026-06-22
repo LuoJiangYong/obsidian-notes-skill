@@ -4,6 +4,8 @@ Use this reference when the source material is not just the current conversation
 
 ## Source Handling Rules
 
+For any user-provided WeChat or other platform URL, preserve the original URL in `## Context` as a visible source bullet, and also include it again in `## Key references`. `Context` is for immediate reading orientation; `Key references` is for evidence and retrieval.
+
 ### WeChat Article
 
 Use for 微信推文, 公众号文章, saved HTML, screenshots, or copied article text.
@@ -16,7 +18,7 @@ Capture:
 - key claims, examples, data, quoted framework, and reusable method
 - access limitations if the page could not be fully retrieved
 
-`Key references` should include the article URL or local export path. Do not over-quote; summarize and keep short excerpts only when necessary.
+`Context` must include the original article URL when the user provided it. `Key references` should include the article URL or local export path. Do not over-quote; summarize and keep short excerpts only when necessary.
 
 ### URL / Web Page
 
@@ -30,7 +32,7 @@ Capture:
 - factual claims versus interpretation
 - sections used, especially for long pages
 
-When current accuracy matters, verify the URL live before writing.
+`Context` must include the exact URL when the user provided it. When current accuracy matters, verify the URL live before writing.
 
 ### PDF
 

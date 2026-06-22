@@ -5,7 +5,7 @@ description: Create structured Obsidian knowledge notes from the current convers
 
 # Obsidian Notes
 
-Use this skill to turn a conversation or project/topic context into a durable Obsidian note. The output should be useful weeks later: searchable, concise, action-oriented, connected to adjacent notes, and easy for another Agent to reuse.
+Use this skill to turn a conversation or project/topic context into a durable Obsidian note. The output should be useful weeks later: searchable, complete enough to read without reopening the source file, connected to adjacent notes, and easy for another Agent to reuse.
 
 ## Core Workflow
 
@@ -34,10 +34,12 @@ Every note must include:
 - `## Key takeaway`: an Obsidian callout block containing one sentence with the most reusable conclusion, followed by one short explanatory paragraph. Do not pad with generic filler.
 - `## 摘要`: an Obsidian callout block with three short bullets for immediate scan-reading.
 - `## Context`: an Obsidian callout block containing compact background, goal, current status, and scope bullets.
-- Bullet-based content blocks with clear subheadings.
-- `## 后续可复用关键信息`: split into `### 环境与入口` and `### 迁移与验证` tables with portable facts, commands, constraints, gotchas, and decisions.
+- Content blocks with clear subheadings. For business/project archive notes, preserve the source's complete substantive content in structured prose, bullets, and tables; the reader should not need to reopen the original file to understand the content, mechanisms, examples, or conclusions.
+- `## 后续可复用关键信息`: for Agent workflows and technical notes, include portable facts, commands, constraints, gotchas, and decisions. For business/project archive notes, use this section for reusable business insights, writing structures, templates, mechanisms, data口径, and replication conditions.
 - `## Key references`: grouped external evidence such as official docs, local files, repo paths, user-provided URLs, and API endpoints.
 - `## 文件引用`: Obsidian internal wiki links that express major knowledge relationships between notes.
+
+Do not include `## Next actions` by default for archived work-project notes. Only add it when the note is an active execution plan, task tracker, or the user explicitly asks for follow-up actions.
 
 ## Writing Rules
 
@@ -49,6 +51,8 @@ Every note must include:
 - Read and write Markdown as UTF-8. On Windows PowerShell, specify `-Encoding UTF8` when reading files whose Chinese headings matter.
 - Keep `Key references` and `文件引用` separate: external evidence belongs in `Key references`; internal Obsidian note relationships belong in `文件引用`.
 - For WeChat articles, URLs, PDFs, DOCX, EXCEL, and PPTX, preserve source identity in `Key references` and mark extraction limits, pages, sheets, slides, or access dates when known.
+- For business/project archive notes in `06-Archives`, do not write a lightweight pointer note. Extract and preserve the original file's full substantive content: storyline, facts, data, mechanisms, examples, comparisons, decisions, and reusable implications. Page/slide references are evidence, not a substitute for content.
+- For 社群和会员运营、营销策划、商业运营、品牌活动、线上产品开发 and similar work materials, prefer these H2 blocks after Context: `## 原始内容完整整理`, `## 机制 / 模式`, `## 案例 / 对比`, `## 可复制启示`. `机制 / 模式` and `案例 / 对比` may be omitted only when the source truly lacks them.
 - When writing to an existing note, read first and patch targeted sections when possible. Avoid whole-file overwrite unless creating a new note or replacing a generated draft with user approval.
 - For destructive actions such as delete, move, or broad replacement, require explicit user confirmation.
 
@@ -60,7 +64,8 @@ Before writing or updating a note, verify:
 - `Key takeaway` has exactly one reusable conclusion sentence and one dense explanation paragraph.
 - `摘要` has exactly three bullets and does not duplicate the full takeaway paragraph.
 - `Context` is compact and contains background, goal, current status, and scope.
-- `后续可复用关键信息` includes concrete paths, endpoints, commands, configuration keys, validation checks, or decision boundaries when available.
+- For business/project archive notes, the main body is complete enough that a future reader can understand the original material without reopening the source file.
+- `后续可复用关键信息` includes concrete paths, endpoints, commands, configuration keys, validation checks, decision boundaries, or business reuse patterns when available.
 - `Key references` contains only external references or local filesystem/repo paths.
 - `文件引用` contains only meaningful Obsidian wiki links such as `[[Obsidian MCP 接入经验]]`, with a short reason for each relationship.
 - No secret, API key, cookie, token, auth code, or bearer value is written unless the user explicitly asks for that exact disclosure.
