@@ -5,7 +5,7 @@ description: Create structured Obsidian knowledge notes from the current convers
 
 # Obsidian Notes
 
-Use this skill to turn a conversation or project/topic context into a durable Obsidian note. The output should be useful weeks later: searchable, concise, action-oriented, and easy for another Agent to reuse.
+Use this skill to turn a conversation or project/topic context into a durable Obsidian note. The output should be useful weeks later: searchable, concise, action-oriented, connected to adjacent notes, and easy for another Agent to reuse.
 
 ## Core Workflow
 
@@ -19,20 +19,23 @@ Use this skill to turn a conversation or project/topic context into a durable Ob
 3. Choose a destination folder. Default to `00-Agent(工作流沉淀）/` for Agent workflows and tool setup unless the user specifies otherwise.
 4. Draft the note using `references/note-template.md`.
 5. Apply `references/style-guide.md` before writing.
-6. If an Obsidian MCP or Local REST API connection is available, write the note and read it back to verify title, properties, `Key takeaway`, and the final reusable section exist. If not available, provide the Markdown note for manual insertion.
+6. Add internal wiki-style note relationships in `## 文件引用` when there are meaningful upstream, sibling, downstream, or project-context notes.
+7. Run the quality checklist before writing.
+8. If an Obsidian MCP or Local REST API connection is available, write the note and read it back to verify title, properties, `Key takeaway`, `摘要`, `文件引用`, and the final reusable section exist. If not available, provide the Markdown note for manual insertion.
 
 ## Required Note Shape
 
 Every note must include:
 
-- YAML Properties with creation metadata, source, topic/project, and tags. Do not include a `links` property; put links in `Key references`.
+- YAML Properties with creation metadata, update metadata, source, topic/project, knowledge type, confidence, related notes/projects, and tags. Do not include a `links` property; put URLs and local paths in `Key references`.
 - One specific H1 title.
 - `## Key takeaway`: an Obsidian callout block containing one sentence with the most reusable conclusion, followed by one short explanatory paragraph. Do not pad with generic filler.
 - `## 摘要`: an Obsidian callout block with three short bullets for immediate scan-reading.
 - `## Context`: an Obsidian callout block containing compact background, goal, current status, and scope bullets.
 - Bullet-based content blocks with clear subheadings.
 - `## 后续可复用关键信息`: split into `### 环境与入口` and `### 迁移与验证` tables with portable facts, commands, constraints, gotchas, and decisions.
-- `## Key references`: grouped into useful categories such as Obsidian notes, local files, and API endpoints.
+- `## Key references`: grouped external evidence such as official docs, local files, repo paths, user-provided URLs, and API endpoints.
+- `## 文件引用`: Obsidian internal wiki links that express major knowledge relationships between notes.
 
 ## Writing Rules
 
@@ -41,8 +44,23 @@ Every note must include:
 - Use tables for configuration matrices, option comparisons, command checklists, or field definitions.
 - Use Mermaid only when a small diagram makes a workflow easier to reuse.
 - Do not include secrets, API keys, cookies, or tokens unless the user explicitly asks to include them.
+- Read and write Markdown as UTF-8. On Windows PowerShell, specify `-Encoding UTF8` when reading files whose Chinese headings matter.
+- Keep `Key references` and `文件引用` separate: external evidence belongs in `Key references`; internal Obsidian note relationships belong in `文件引用`.
 - When writing to an existing note, read first and patch targeted sections when possible. Avoid whole-file overwrite unless creating a new note or replacing a generated draft with user approval.
 - For destructive actions such as delete, move, or broad replacement, require explicit user confirmation.
+
+## Quality Checklist
+
+Before writing or updating a note, verify:
+
+- YAML contains `created_at`, `updated_at`, `source`, `project`, `topic`, `note_type`, `knowledge_type`, `status`, `confidence`, `related_projects`, `related_notes`, and `tags`.
+- `Key takeaway` has exactly one reusable conclusion sentence and one dense explanation paragraph.
+- `摘要` has exactly three bullets and does not duplicate the full takeaway paragraph.
+- `Context` is compact and contains background, goal, current status, and scope.
+- `后续可复用关键信息` includes concrete paths, endpoints, commands, configuration keys, validation checks, or decision boundaries when available.
+- `Key references` contains only external references or local filesystem/repo paths.
+- `文件引用` contains only meaningful Obsidian wiki links such as `[[Obsidian MCP 接入经验]]`, with a short reason for each relationship.
+- No secret, API key, cookie, token, auth code, or bearer value is written unless the user explicitly asks for that exact disclosure.
 
 ## Obsidian Write Guidance
 

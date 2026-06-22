@@ -6,12 +6,17 @@ Use this as the default note shape. Adjust field values to the user's context.
 ---
 created_by: Codex
 created_at: YYYY-MM-DD
+updated_at: YYYY-MM-DD
 created_method: conversation-to-obsidian-note
 source: conversation
 project: ""
 topic: ""
 note_type: agent-workflow
+knowledge_type: workflow
 status: captured
+confidence: medium
+related_projects: []
+related_notes: []
 tags:
   - obsidian
   - agent-workflow
@@ -101,4 +106,18 @@ flowchart TD
 ### API endpoints
 
 - 
+
+## 文件引用
+
+### 上游来源
+
+- None captured
+
+### 相关主题
+
+- None captured
+
+### 后续可延展
+
+- None captured
 ```
