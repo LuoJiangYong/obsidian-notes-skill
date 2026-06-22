@@ -16,12 +16,14 @@ Use this skill to turn a conversation or project/topic context into a durable Ob
    - `technical-note`: Configuration, commands, debugging, architecture.
    - `decision-record`: Chosen direction, rejected options, rationale.
    - `reference-note`: Durable knowledge or reusable method.
-3. Choose a destination folder. Default to `00-Agent(工作流沉淀）/` for Agent workflows and tool setup unless the user specifies otherwise.
-4. Draft the note using `references/note-template.md`.
-5. Apply `references/style-guide.md` before writing.
-6. Add internal wiki-style note relationships in `## 文件引用` when there are meaningful upstream, sibling, downstream, or project-context notes.
-7. Run the quality checklist before writing.
-8. If an Obsidian MCP or Local REST API connection is available, write the note and read it back to verify title, properties, `Key takeaway`, `摘要`, `文件引用`, and the final reusable section exist. If not available, provide the Markdown note for manual insertion.
+3. Classify the business/domain template when relevant using `references/note-types.md`, especially for community/member operations, marketing planning, commercial operations, brand events, online product development, case studies, and MOC/index notes.
+4. Classify the source type using `references/source-types.md` when the input comes from a WeChat article, URL, PDF, DOCX, EXCEL, PPTX, local file, meeting, or existing Obsidian note.
+5. Choose a destination folder. Default to `00-Agent(工作流沉淀）/` for Agent workflows and tool setup; prefer `06-Archives(重要档案）/` for business materials, cases, reports, event retrospectives, and archived source-derived notes unless the user specifies otherwise.
+6. Draft the note using `references/note-template.md`.
+7. Apply `references/style-guide.md` before writing.
+8. Add internal wiki-style note relationships in `## 文件引用` when there are meaningful upstream, sibling, downstream, or project-context notes.
+9. Run the quality checklist before writing.
+10. If an Obsidian MCP or Local REST API connection is available, write the note and read it back to verify title, properties, `Key takeaway`, `摘要`, `文件引用`, and the final reusable section exist. If not available, provide the Markdown note for manual insertion.
 
 ## Required Note Shape
 
@@ -46,6 +48,7 @@ Every note must include:
 - Do not include secrets, API keys, cookies, or tokens unless the user explicitly asks to include them.
 - Read and write Markdown as UTF-8. On Windows PowerShell, specify `-Encoding UTF8` when reading files whose Chinese headings matter.
 - Keep `Key references` and `文件引用` separate: external evidence belongs in `Key references`; internal Obsidian note relationships belong in `文件引用`.
+- For WeChat articles, URLs, PDFs, DOCX, EXCEL, and PPTX, preserve source identity in `Key references` and mark extraction limits, pages, sheets, slides, or access dates when known.
 - When writing to an existing note, read first and patch targeted sections when possible. Avoid whole-file overwrite unless creating a new note or replacing a generated draft with user approval.
 - For destructive actions such as delete, move, or broad replacement, require explicit user confirmation.
 
@@ -83,3 +86,5 @@ When using Obsidian Local REST API with MCP manually:
 
 - Read `references/note-template.md` whenever drafting a note.
 - Read `references/style-guide.md` whenever deciding how much detail, formatting, or visual structure to include.
+- Read `references/note-types.md` when the note belongs to a recurring business/domain category.
+- Read `references/source-types.md` when the input came from a URL, WeChat article, PDF, DOCX, EXCEL, PPTX, local file, or existing note.
