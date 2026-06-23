@@ -1,128 +1,154 @@
-# Obsidian Source Types
+# Obsidian 来源类型
 
-Use this reference when the source material is not just the current conversation. Preserve source identity in `Key references`; use `文件引用` only for Obsidian internal note relationships.
+当笔记来源不只是当前对话时，使用本文件判断如何保留来源、提取内容和标记可信度。
 
-## Source Handling Rules
+核心原则：
 
-For any user-provided WeChat or other platform URL, preserve the original URL in `## Context` as a visible source bullet, and also include it again in `## Key references`. `Context` is for immediate reading orientation; `Key references` is for evidence and retrieval.
+- `Key references` 是唯一外部来源区：用户 URL、本地原始文件、抽取文本、官方文档、API endpoint、页码、章节、sheet、slide 等都放这里。
+- `文件引用` 只放 Obsidian 内部 wiki 链接，不放 URL、本地路径或 API endpoint。
+- 用户提供的微信或其他平台 URL，必须同时出现在 `Context` 和 `Key references`：
+  - `Context` 用于阅读时快速知道来源。
+  - `Key references` 用于证据追踪和后续检索。
+- 不要在 `后续可复用关键信息` 中重复来源路径、URL 或页码。
 
-### WeChat Article
+## 来源处理规则
 
-Use for 微信推文, 公众号文章, saved HTML, screenshots, or copied article text.
+### 微信文章
 
-Capture:
+适用于微信公众号文章、微信推文、保存的 HTML、截图或复制正文。
 
-- title, account/publication name, author when available
-- publish date and access/save date
-- original URL or exported local file path
-- key claims, examples, data, quoted framework, and reusable method
-- access limitations if the page could not be fully retrieved
+需要捕捉：
 
-`Context` must include the original article URL when the user provided it. `Key references` should include the article URL or local export path. Do not over-quote; summarize and keep short excerpts only when necessary.
+- 标题、公众号/发布主体、作者（如有）。
+- 发布时间、访问/保存时间。
+- 用户提供的原始 URL 或本地导出路径。
+- 关键主张、案例、数据、框架和可复用方法。
+- 如果页面无法完整读取，要说明访问限制。
 
-### URL / Web Page
+规则：
 
-Use for ordinary web pages, docs, blog posts, product pages, and online reports.
+- 如果用户提供了原始 URL，`Context` 中必须保留该 URL。
+- `Key references` 中必须保留 URL 或本地导出文件路径。
+- 不要大段引用原文；必要时只保留短摘录，其余用总结和结构化整理。
 
-Capture:
+### 普通 URL / 网页
 
-- page title, publisher, author when available
-- publish/update date and access date
-- exact URL
-- factual claims versus interpretation
-- sections used, especially for long pages
+适用于普通网页、在线文档、博客、产品页、新闻稿和线上报告。
 
-`Context` must include the exact URL when the user provided it. When current accuracy matters, verify the URL live before writing.
+需要捕捉：
+
+- 页面标题、发布方、作者（如有）。
+- 发布/更新时间和访问时间。
+- 精确 URL。
+- 事实主张和整理者推断要区分。
+- 长网页要标记使用了哪些章节。
+
+规则：
+
+- 用户提供的 URL 必须出现在 `Context` 和 `Key references`。
+- 如果当前准确性重要，需要实时验证网页内容。
 
 ### PDF
 
-Use for reports, white papers, scanned documents, brochures, and exported slides.
+适用于报告、白皮书、扫描文件、手册、宣传册和导出的 slides。
 
-Capture:
+需要捕捉：
 
-- local path or source URL
-- filename, page count when known, page ranges used
-- section/page references for important data
-- chart/table names and data caveats
-- OCR limitations when applicable
+- 本地路径或来源 URL。
+- 文件名、页数（如可得）。
+- 关键事实对应的页码或页码范围。
+- 图表/表格名称和数据限制。
+- OCR 或图片型页面的识别限制。
 
-`Key references` should include page numbers or page ranges for important claims.
+规则：
+
+- `Key references` 中保留原始 PDF 路径和关键页码。
+- 页码是证据，不是正文替代。正文必须整理出完整内容和机制。
 
 ### DOCX
 
-Use for Word documents, drafts, proposals, plans, summaries, and meeting documents.
+适用于 Word 文档、方案、计划、总结、会议材料和草稿。
 
-Capture:
+需要捕捉：
 
-- local path, filename, version/date when available
-- heading structure and sections used
-- comments/revisions if relevant
-- core decisions, action items, reusable language, and unresolved issues
+- 本地路径、文件名、版本/日期（如有）。
+- 标题结构和使用章节。
+- 评论、修订或批注（如与任务相关）。
+- 核心决策、行动项、可复用表达和未解决问题。
 
-Preserve document version context when the file may have multiple drafts.
+规则：
 
-### EXCEL / Spreadsheet
+- 如果存在多个版本，要保留版本语境。
+- `Key references` 中保留文件路径和关键章节。
 
-Use for Excel workbooks, CSV files, tables, KPI exports, and operational datasets.
+### EXCEL / 表格
 
-Capture:
+适用于 Excel 工作簿、CSV、KPI 导出、运营数据表和分析表。
 
-- local path, workbook name, sheet names used
-- time range, rows/columns, field definitions, metric formulas
-- filters, pivots, aggregation choices, and data limitations
-- key tables or summaries instead of dumping whole sheets
+需要捕捉：
 
-Important: state metric definitions and denominator assumptions. Do not turn raw tables into generic prose without preserving the data grain.
+- 本地路径、工作簿名、使用的 sheet。
+- 时间范围、行列范围、字段定义、指标公式。
+- 筛选条件、透视/聚合方式和数据限制。
+- 关键表格或汇总，不要直接倾倒整张表。
+
+规则：
+
+- 必须说明指标定义和分母假设。
+- 不要把原始表格泛化成空洞文字，要保留数据颗粒度。
 
 ### PPTX / Slides
 
-Use for presentations, work reports, strategy decks, training decks, and event proposals.
+适用于演示文稿、工作汇报、策略 deck、培训材料和活动方案。
 
-Capture:
+需要捕捉：
 
-- local path, deck name, slide count when known
-- slide numbers or section titles used
-- main storyline, claims, data charts, examples, and decisions
-- visual assets or diagrams that should be retained
+- 本地路径、deck 名称、slide 数量（如可得）。
+- 使用的 slide 编号或章节标题。
+- 主线叙事、关键主张、数据图表、案例和决策。
+- 需要保留的视觉资产或图示。
 
-PPTX often contains high-level argument structure; preserve the storyline before extracting details.
+规则：
 
-### Existing Obsidian Note
+- PPTX 往往有强叙事结构，先保留 storyline，再提取细节。
+- `Key references` 中保留文件路径和关键 slide/章节。
 
-Use when updating, summarizing, splitting, or synthesizing notes already in the vault.
+### 已有 Obsidian 笔记
 
-Capture:
+适用于更新、总结、拆分或综合 vault 中已有笔记。
 
-- original note title and path
-- whether the new note summarizes, corrects, extends, or indexes the original
-- wiki links in `文件引用`
-- local path in `Key references` only when useful for Agent migration
+需要捕捉：
 
-### Conversation
+- 原笔记标题和路径。
+- 新笔记是总结、修正、扩展还是索引原笔记。
+- 内部关系放入 `文件引用`。
+- 本地路径只有在对 Agent 迁移有帮助时才放入 `Key references`。
 
-Use when the current chat is the primary source.
+### 当前对话
 
-Capture:
+适用于当前聊天是主要来源的情况。
 
-- user intent, decisions made, tools run, files changed, validation status
-- exact paths, commands, endpoints, and constraints when relevant
-- unresolved next actions
+需要捕捉：
 
-## Confidence Guidance
+- 用户意图、已做决策、执行过的工具、改动过的文件、验证状态。
+- 关键路径、命令、端点和约束。
+- 如果确实存在待办或后续行动，再写行动项；不要默认生成 `Next actions`。
 
-- `high`: source was read directly in this run, or output was written and read back.
-- `medium`: source came from conversation context, memory-derived facts, or partial file inspection.
-- `low`: source was incomplete, inaccessible, OCR-limited, or not verified.
+## 可信度判断
 
-## Key References by Source
+- `high`：本次运行直接读取来源，或写入后读回验证，或来源可靠且已核对。
+- `medium`：来自对话上下文、记忆、部分文件检查或间接材料。
+- `low`：来源不完整、不可访问、OCR 受限、图片识别不全或尚未验证。
 
-| Source | Required references |
+## Key references 要求
+
+| 来源 | 必需引用 |
 |---|---|
-| WeChat article | URL or local export, account name, publish/access date when known |
-| URL | URL, title/publisher, access date |
-| PDF | path or URL, page range, filename |
-| DOCX | path, filename/version, sections used |
-| EXCEL | path, workbook, sheet names, metric definitions |
-| PPTX | path, deck name, slide numbers or section titles |
-| Existing Obsidian note | wiki link in `文件引用`, optional path in `Key references` |
-| Conversation | no invented reference; include local files or tool outputs only when they exist |
+| 微信文章 | URL 或本地导出、公众号、发布时间/访问时间（如可得） |
+| URL | URL、标题/发布方、访问时间 |
+| PDF | 路径或 URL、文件名、关键页码范围 |
+| DOCX | 路径、文件名/版本、使用章节 |
+| EXCEL | 路径、工作簿、sheet、指标定义 |
+| PPTX | 路径、deck 名称、slide 编号或章节 |
+| 已有 Obsidian 笔记 | 内部关系放 `文件引用`；仅必要时在 `Key references` 放路径 |
+| 当前对话 | 不虚构引用；只放实际存在的文件、工具输出或路径 |

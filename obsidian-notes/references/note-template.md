@@ -1,6 +1,6 @@
-# Obsidian Note Template
+# Obsidian 笔记模板
 
-Use this as the default note shape. Adjust field values to the user's context.
+这是默认笔记结构。实际写作时根据用户上下文、来源类型和业务领域调整字段值和正文内容。
 
 ```markdown
 ---
@@ -18,18 +18,17 @@ confidence: medium
 related_projects: []
 related_notes: []
 tags:
-  - obsidian
-  - agent-workflow
+  - project-note
 ---
 
-# Specific Note Title
+# 具体笔记标题
 
 ## Key takeaway
 
 > [!tip] Key takeaway
-> One sentence explaining the most reusable conclusion from this note.
+> 用一句话说明这篇笔记最值得以后复用的结论。
 >
-> One short paragraph explaining why that conclusion matters, when to apply it, and the minimum context needed to reuse it. Keep it dense; do not add filler.
+> 用一小段解释这个结论为什么重要、适合什么场景、复用时最不能忽略什么。保持高密度，不要写泛泛而谈的价值描述。
 
 ## 摘要
 
@@ -47,10 +46,6 @@ tags:
 > - 适用范围：
 > - 用户提供的 URL：如有微信或其他平台链接，必须在这里保留原始 URL。
 
-## Key points
-
-Use `Key points` only for short notes or technical/workflow notes. For business/project archive notes, prefer the fuller structure below instead of generic `Key points`.
-
 ## 原始内容完整整理
 
 ### 材料主线
@@ -67,7 +62,7 @@ Use `Key points` only for short notes or technical/workflow notes. For business/
 
 ## 机制 / 模式
 
-Omit this section only when the source truly has no mechanism, model, operating method, process, or framework.
+如果来源中确实没有机制、模式、运营方法、流程、角色分工或框架，可以省略本节。
 
 | 机制/模式 | 具体做法 | 适用条件 | 价值 |
 |---|---|---|---|
@@ -75,7 +70,7 @@ Omit this section only when the source truly has no mechanism, model, operating 
 
 ## 案例 / 对比
 
-Omit this section only when the source has no concrete case, regional sample, benchmark, comparison, or example.
+如果来源中确实没有具体案例、区域样本、标杆对比、前后对比或执行示例，可以省略本节。
 
 | 案例/对象 | 做法/表现 | 结果/差异 | 可借鉴点 |
 |---|---|---|---|
@@ -97,15 +92,7 @@ Omit this section only when the source has no concrete case, regional sample, be
 
 ## 后续可复用关键信息
 
-For business/project archive notes, use this section for stable reusable facts and business reuse patterns. For technical/Agent workflow notes, use the environment and validation tables.
-
-### 来源与归档
-
-| 项 | 值 | 用途 |
-|---|---|---|
-| 原始文件/URL |  | 来源定位 |
-| 归档目录 |  | Obsidian 存放位置 |
-| 适用模板 |  | 后续同类资料整理 |
+本节只放复用口径、模板沉淀、数据口径、机制抽象、适用条件和注意事项。不要重复原始文件路径、URL、页码或抽取文本路径；这些统一放在 `Key references`。
 
 ### 复用口径
 
@@ -113,19 +100,25 @@ For business/project archive notes, use this section for stable reusable facts a
 |---|---|---|
 |  |  |  |
 
+### 模板沉淀
+
+| 场景 | 可复制结构 | 注意事项 |
+|---|---|---|
+|  |  |  |
+
 ## Key references
 
-### Obsidian notes
+### URL
 
-- 
+- None captured
 
 ### Local files
 
-- 
+- None captured
 
-### API endpoints
+### Source pages / sections
 
-- 
+- None captured
 
 ## 文件引用
 
@@ -136,8 +129,11 @@ For business/project archive notes, use this section for stable reusable facts a
 ### 相关主题
 
 - None captured
-
-### 后续可延展
-
-- None captured
 ```
+
+## 使用说明
+
+- 工作项目归档笔记默认使用完整结构。
+- 技术/工具/Agent 工作流笔记可以把 `原始内容完整整理` 替换为更适合的 `Key points`、配置表、流程图或验证清单。
+- `Key references` 是唯一外部来源区；不要在 `后续可复用关键信息` 重复来源。
+- `文件引用` 默认只包含 `上游来源` 和 `相关主题`。不要默认生成 `后续可延展`。

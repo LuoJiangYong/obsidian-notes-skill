@@ -1,61 +1,92 @@
-# Obsidian Note Style Guide
+# Obsidian 笔记样式指南
 
 ## Key takeaway
 
-Render this section as an Obsidian callout so it appears as a highlighted block:
+`Key takeaway` 使用 Obsidian callout，高亮显示：
 
 ```markdown
 ## Key takeaway
 
 > [!tip] Key takeaway
-> One sentence with the reusable conclusion.
+> 一句话写出最值得复用的结论。
 >
-> One short practical explanation paragraph.
+> 一小段解释为什么重要、何时适用、复用时最不能忘记什么。
 ```
 
-Write exactly two parts inside the callout:
+写作要求：
 
-1. One sentence: the most reusable conclusion.
-2. One short paragraph: the practical explanation needed to apply that conclusion later.
+1. 第一段只能是一句话，直接给结论。
+2. 第二段是一小段解释，说明适用场景、核心动作和复用边界。
+3. 不要复述标题，不要写“本文很有价值”这类空话。
 
-The paragraph should answer: when does this matter, what is the core move, and what must not be forgotten? Do not restate the title or add generic value claims.
+强示例：
 
-Good:
-
-> Prefer the plugin's native MCP endpoint when the Obsidian Local REST API plugin already exposes `/mcp/`, and only use a stdio wrapper when the client cannot speak Streamable HTTP.
+> 工作项目归档笔记必须把原始材料的主线、事实、机制、案例和可复制启示整理进正文，而不是只保留来源链接和页码。
 >
-> This matters because wrapper packages may assume different REST paths, causing tools to initialize successfully but fail at call time. Verify the plugin's OpenAPI and run a `tools/list` plus one write/read loop before treating the setup as reusable.
+> 这适用于 PDF、PPTX、微信推文和工作汇报等资料归档。页码和链接只用于证据追踪，正文要成为可直接阅读和复用的知识资产。
 
-Weak:
+弱示例：
 
-> This note explains how to connect Obsidian MCP.
+> 这篇笔记整理了一个项目资料。
 >
-> It is useful for future work and helps Agents be more productive.
+> 它对以后有帮助，可以提升效率。
 
 ## Properties
 
-Use YAML frontmatter. Prefer stable, searchable values:
+使用 YAML frontmatter。字段应稳定、可搜索：
 
-- `created_by`: usually `Codex`.
-- `created_at`: local date in `YYYY-MM-DD`.
-- `updated_at`: local date in `YYYY-MM-DD`; set to the same value as `created_at` for new notes.
-- `created_method`: concise origin, such as `conversation-to-obsidian-note`.
-- `source`: `conversation`, `meeting`, `repo`, `document`, or `manual`.
-- `project`: exact project or repo name when known.
-- `topic`: specific topic.
-- `note_type`: one of `agent-workflow`, `project-note`, `technical-note`, `decision-record`, `reference-note`.
-- `knowledge_type`: one of `workflow`, `setup`, `decision`, `reference`, `troubleshooting`, or `project-context`.
-- `status`: `captured`, `draft`, `validated`, or `needs-review`.
-- `confidence`: `high`, `medium`, or `low`; use `high` only when the note was verified in the current run or backed by a reliable source.
-- `related_projects`: YAML list of related project or repo names, empty list allowed.
-- `related_notes`: YAML list of Obsidian note titles that have a meaningful knowledge relationship with this note, empty list allowed.
-- `tags`: 2-6 tags; use lowercase English where possible for search consistency.
+- `created_by`：通常为 `Codex`。
+- `created_at`：本地日期，格式 `YYYY-MM-DD`。
+- `updated_at`：本地日期，格式 `YYYY-MM-DD`；新建笔记时与 `created_at` 相同。
+- `created_method`：简洁说明创建方式，如 `pdf-to-obsidian-note`、`url-to-obsidian-note`。
+- `source`：如 `conversation`、`meeting`、`pdf`、`url`、`document`、`repo`、`manual`。
+- `project`：明确项目或业务名称。
+- `topic`：具体主题。
+- `note_type`：常用值包括 `agent-workflow`、`project-note`、`technical-note`、`decision-record`、`reference-note`、`business-report`。
+- `knowledge_type`：常用值包括 `workflow`、`setup`、`decision`、`reference`、`troubleshooting`、`project-context`。
+- `status`：`captured`、`draft`、`validated` 或 `needs-review`。
+- `confidence`：`high`、`medium` 或 `low`。
+- `related_projects`：相关项目列表，可为空。
+- `related_notes`：相关 Obsidian 笔记标题列表，可为空；这些笔记应在 `文件引用` 中解释关系。
+- `tags`：2-6 个标签。
 
-Do not include `links` in Properties. Put URLs and local paths in `## Key references`. Put Obsidian note titles in `related_notes` and explain the relationship in `## 文件引用`.
+不要在 Properties 中加入 `links`。URL、本地路径和外部证据统一放入 `## Key references`；Obsidian 内部笔记标题放入 `related_notes` 并在 `## 文件引用` 中说明关系。
+
+## 摘要
+
+`摘要` 放在 `Key takeaway` 后、`Context` 前，使用 Obsidian callout，并固定三条 bullet。
+
+工作项目归档笔记推荐：
+
+```markdown
+## 摘要
+
+> [!summary] 摘要
+> - 核心内容：
+> - 关键机制：
+> - 可复用价值：
+```
+
+技术/工具/Agent 工作流笔记可改为：
+
+```markdown
+## 摘要
+
+> [!summary] 摘要
+> - 优先路径：
+> - 验证闭环：
+> - 主要坑点：
+```
+
+要求：
+
+- 恰好三条 bullet。
+- 每条尽量一行内说清。
+- 不要重复 `Key takeaway` 的解释段。
 
 ## Context
 
-Render context as an Obsidian callout immediately after `## Context`:
+`Context` 立即放在摘要后，用 Obsidian callout：
 
 ```markdown
 ## Context
@@ -67,53 +98,72 @@ Render context as an Obsidian callout immediately after `## Context`:
 > - 适用范围：
 ```
 
-Keep this block compact. It should orient the reader, not duplicate the whole note.
+要求：
 
-If the user provided a WeChat or other platform URL, include the exact original URL in `Context` as a visible source bullet. Also repeat it in `Key references` for evidence tracking.
+- 保持简洁，用于快速定位来源和适用范围，不要复制整篇正文。
+- 如果用户提供了微信或其他平台 URL，必须在 `Context` 中保留原始 URL。
+- 用户提供的 URL 也必须在 `Key references` 中再次保留，便于证据追踪。
 
-## 摘要
+## 正文内容块
 
-Add exactly three bullets in an Obsidian callout after `Key takeaway` and before `Context`.
-
-Use this pattern unless the note type clearly needs different labels:
+工作项目归档笔记优先使用：
 
 ```markdown
-## 摘要
-
-> [!summary] 摘要
-> - 优先路径：
-> - 验证闭环：
-> - 主要坑点：
+## 原始内容完整整理
+## 机制 / 模式
+## 案例 / 对比
+## 可复制启示
 ```
 
-Each bullet should fit on one line when possible. Do not duplicate the full Key takeaway paragraph.
+写作要求：
 
-## Content Blocks
+- `原始内容完整整理`：保留材料主线、章节、事实、数据、结论，不要只写摘要。
+- `机制 / 模式`：提炼流程、角色、数据链路、经营模式、治理方式或方法论。
+- `案例 / 对比`：整理区域样本、项目样板、竞品/标杆、前后差异或代表案例。
+- `可复制启示`：沉淀写作结构、模板化做法、适用条件和注意事项。
+- 如果来源中确实没有机制或案例，对应章节可以省略，但不能因为省事而省略。
 
-- Use H2 for stable sections and H3 for scannable subtopics.
-- Prefer bullets over paragraphs for facts, decisions, commands, and caveats.
-- Use tables for reusable configuration, option comparison, and "what to do next" matrices.
-- Keep local paths and command names exact.
-- Include a Mermaid diagram only if it compresses a process or dependency chain.
-- For business/project archive notes, preserve the original material's substantive content in the main body. Do not write a pointer note that only tells the reader where to look in the original file.
-- For work-project materials such as 社群和会员运营、营销策划、商业运营、品牌活动、线上产品开发, prefer `原始内容完整整理`, `机制 / 模式`, `案例 / 对比`, and `可复制启示` over generic `Key points` or `Workflow / Method`.
-- Do not include `Next actions` in archived work-project notes unless the user explicitly asks for an action plan or the note is an active project tracker.
+技术/工具类笔记可以使用更适合的结构，例如：
+
+- `## Key points`
+- `## Workflow / Method`
+- 配置表
+- 验证清单
+- 故障与处理表
+
+通用要求：
+
+- H2 用于稳定大段落，H3 用于可扫描子主题。
+- 事实、决策、数据、注意事项优先用 bullet 或表格。
+- 表格适合用于数据、机制、选项对比、字段定义、复用模板。
+- Mermaid 只在流程或关系图能明显提升理解时使用。
+- 工作项目归档笔记不能写成“去看原文第几页”的指针；页码只能作为证据。
 
 ## 后续可复用关键信息
 
-This section replaces generic "Risks / Caveats". It should contain the information a future Agent needs to act without rediscovery:
+本节用于沉淀未来复用这篇笔记时真正有用的信息。
 
-- exact paths and folders
-- endpoint URLs and ports
-- command snippets
-- configuration keys
-- auth/header format rules
-- known incompatibilities
-- validation checks
-- decision boundaries
-- next safe action
+工作项目归档笔记：
 
-Split this section into two subsections by default:
+- 只写复用口径、模板沉淀、数据口径、机制抽象、适用条件、注意事项。
+- 不写原始文件路径、URL、页码、抽取文本路径；这些统一放 `Key references`。
+- 不写泛泛的“后续可以继续优化”。
+
+推荐结构：
+
+```markdown
+## 后续可复用关键信息
+
+### 复用口径
+
+| 复用对象 | 可复用内容 | 使用条件 |
+
+### 模板沉淀
+
+| 场景 | 可复制结构 | 注意事项 |
+```
+
+Agent/技术笔记可以使用：
 
 ```markdown
 ## 后续可复用关键信息
@@ -127,79 +177,72 @@ Split this section into two subsections by default:
 | 检查项 | 标准 | 失败时处理 |
 ```
 
-Use `环境与入口` for stable facts: paths, endpoints, ports, config keys, vault locations.
-Use `迁移与验证` for action checks: health checks, tool list checks, write/read loops, known failure handling.
+## Key references
 
-## Key References
+`Key references` 是唯一外部来源区。
 
-Include only external references and concrete source locations that help the next run:
+可放内容：
 
-- official docs or OpenAPI endpoints
-- local files created or modified
-- important repo paths
-- user-provided links
+- 用户提供 URL。
+- 微信文章链接、本地 HTML、本地正文抽取文件。
+- PDF、DOCX、PPTX、EXCEL、CSV 等原始文件路径。
+- 关键页码、章节、sheet、slide。
+- 官方文档、OpenAPI endpoint、repo 路径、工具输出文件。
 
-Do not invent references. If there are none, write `- None captured`.
+不要放：
 
-Group references by category. Use only categories that have content:
+- Obsidian 内部 wiki 链接。
+- 泛泛的“可参考某某主题”。
+- 已经不存在或没有实际读取依据的来源。
+
+如果没有来源，写：
 
 ```markdown
 ## Key references
 
-### Obsidian notes
-
-### Local files
-
-### API endpoints
+- None captured
 ```
 
 ## 文件引用
 
-Use this section to make the note work like a small personal wiki node. It should explain the main knowledge relationships between this note and other Obsidian notes.
+`文件引用` 用于把笔记变成个人知识库中的节点，只放 Obsidian 内部 wiki 链接。
 
-Use Obsidian wiki links only, such as `[[Obsidian MCP 接入经验]]`. Do not put web URLs, API endpoints, or local filesystem paths here.
-
-Default shape:
+默认结构：
 
 ```markdown
 ## 文件引用
 
 ### 上游来源
 
-- [[Source Note Title]]：This note supplied the setup, decision, source material, or prior version reused here.
+- [[已有来源笔记]]：说明该笔记如何提供来源、背景、前置判断或旧版本。
 
 ### 相关主题
 
-- [[Sibling Note Title]]：This note shares the same workflow family, tool family, project context, or reusable method.
-
-### 后续可延展
-
-- [[Future Note Title]]：This is a likely downstream note, index note, or broader synthesis that can reuse this note.
+- [[相关主题笔记]]：说明它们之间的业务、项目、机制或案例关系。
 ```
 
-Selection rules:
+规则：
 
-- `上游来源`: use for notes that this note summarizes, updates, corrects, or depends on.
-- `相关主题`: use for sibling notes with a real operational relationship, such as the same MCP/CLI/tooling family or the same project.
-- `后续可延展`: use for higher-level synthesis, index, roadmap, or future workflow notes that should consume this note later.
-- Do not force links. If a category has no meaningful note, write `- None captured`.
-- Keep each link explanation short and action-oriented; one line per relationship is enough.
+- `上游来源`：用于这篇笔记总结、修正、扩展或依赖的已有 Obsidian 笔记。
+- `相关主题`：用于同项目、同业务、同机制、同案例家族的已有笔记。
+- 不要默认写 `后续可延展`。
+- 如果确实发现值得延展的新专题，不要直接写进 `文件引用` 当作已存在链接；应在最终回复里列为“建议拆分整理项”，等待用户确认后再创建。
+- 如果某一类没有有意义链接，写 `- None captured`。
+- 每条链接都要有一句短说明，说明为什么相关。
 
-Mirror meaningful internal links in YAML `related_notes`, but keep the explanation in this section.
+## 质量检查
 
-## Quality Checklist
+写入或更新前确认：
 
-Before writing or updating a note, verify:
-
-- YAML metadata is complete and does not contain a `links` property.
-- `related_notes` contains only note titles that are also explained in `## 文件引用`.
-- `Key takeaway` has one strong reusable conclusion sentence and one practical explanation paragraph.
-- `摘要` has exactly three scan-friendly bullets.
-- `Context` orients the reader without repeating the whole note.
-- User-provided WeChat or other platform URLs appear in `Context` and `Key references`.
-- Business/project archive notes contain enough original substance that the reader does not need to reopen the source file for core content.
-- `后续可复用关键信息` contains reusable facts, not generic caveats.
-- `Key references` contains external evidence, local files, repo paths, user URLs, or API endpoints.
-- `文件引用` contains internal Obsidian wiki links only.
-- Secrets are excluded unless the user explicitly asks to include them.
-- Chinese headings render correctly when read as UTF-8.
+- YAML metadata 完整，且没有 `links` 属性。
+- `related_notes` 中的笔记都在 `文件引用` 中有关系说明。
+- `Key takeaway` 是一句强结论 + 一段实用解释。
+- `摘要` 恰好三条。
+- `Context` 能快速说明来源、目标、状态和适用范围。
+- 用户提供的微信或其他平台 URL 同时出现在 `Context` 和 `Key references`。
+- 工作项目归档笔记正文足够完整，不需要重开原始文件才能理解核心内容。
+- `后续可复用关键信息` 不重复来源路径或 URL。
+- `Key references` 只包含外部证据、路径、URL、endpoint、页码或章节。
+- `文件引用` 只包含 Obsidian 内部 wiki 链接，不默认生成 `后续可延展`。
+- 没有写入密钥、API key、cookie、token、auth code 或 bearer 值，除非用户明确要求。
+- 中文标题和正文按 UTF-8 读取时显示正常。

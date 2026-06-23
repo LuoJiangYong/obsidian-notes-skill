@@ -1,107 +1,110 @@
-# Obsidian Note Types
+# Obsidian 笔记类型
 
-Use this reference when a note belongs to a recurring business, project, case, or archive category. For work-project archive notes, the goal is not a pointer or abstract summary. The note should preserve the original material's substantive content so the reader can understand and reuse it without reopening the source file.
+当笔记属于稳定复用的业务、项目、案例或档案类别时，使用本文件判断正文应该重点整理什么。工作项目归档笔记的目标不是生成来源指针或抽象摘要，而是把原始材料整理成可直接阅读、可检索、可复用的知识资产。
 
-## Work-Project Archive Standard
+## 工作项目归档标准
 
-Use this standard for 社群和会员运营、营销策划、商业运营、品牌活动、线上产品开发 and similar business materials.
+适用于社群和会员运营、营销策划、商业运营、品牌活动、线上产品开发，以及类似业务资料。
 
-Required body logic:
+正文逻辑：
 
-1. `原始内容完整整理`: preserve the source's storyline, sections, facts, data, claims, decisions, and conclusions in readable structure.
-2. `机制 / 模式`: extract operating mechanisms, business models, workflows, frameworks, role division, data loops, or governance patterns when present.
-3. `案例 / 对比`: capture concrete cases, regional samples, benchmark comparisons, before/after contrasts, or execution examples when present.
-4. `可复制启示`: convert the material into reusable writing structures, templates, checklists, operating playbooks, or replication conditions.
+1. `原始内容完整整理`：保留来源的叙事主线、章节结构、事实、数据、主张、决策和结论。
+2. `机制 / 模式`：提取运营机制、商业模式、流程框架、角色分工、数据闭环、治理机制或方法论。
+3. `案例 / 对比`：整理具体案例、区域样本、标杆对比、前后对比、执行样例或代表性差异。
+4. `可复制启示`：把资料转译为可复用的写作结构、模板、清单、运营打法或复制条件。
 
-Quality bar:
+质量要求：
 
-- Page, slide, sheet, or paragraph references are evidence only; they must not replace substantive content.
-- Avoid generic `Workflow / Method` headings unless the source itself is a workflow note.
-- Do not include `Next actions` unless the note is an active task plan. Archived work-project notes should focus on content completeness and reuse.
-- Prefer tables for data, mechanisms, comparisons, role division, and reusable templates.
-- Preserve enough examples and details that the note can serve as the working copy inside Obsidian.
+- 页码、slide、sheet、段落位置只是证据，不能代替正文内容。
+- 除非来源本身就是工作流资料，否则不要使用泛化的 `Workflow / Method` 标题。
+- 归档型工作项目笔记不要默认加入 `Next actions`。
+- `后续可复用关键信息` 只写复用口径、模板沉淀、数据口径、机制抽象、适用条件和注意事项，不重复来源路径或 URL。
+- `文件引用` 默认只放已经存在或明确相关的 Obsidian 笔记关系，不默认写 `后续可延展`。
+- 如果整理中发现值得拆成新专题的内容，在最终回复中列为“建议拆分整理项”，等待用户确认后再创建。
+- 优先用表格整理数据、机制、对比、角色分工和复用模板。
+- 保留足够案例和细节，让笔记能够成为 Obsidian 中的工作副本。
 
-## Business Domain Templates
+## 业务领域模板
 
-### Community / Member Operations
+### 社群和会员运营
 
-Use for 社群运营, 会员运营, 主理人运营, 私域运营, regional community operations, and member activity systems.
+适用于社群运营、会员运营、主理人运营、私域运营、区域社群运营和会员活动体系。
 
-Required content emphasis:
+整理重点：
 
 - 原始内容完整整理：业务目标、平台/项目背景、人群分层、触点工具、活动/IP/权益内容、数据结果、组织协同。
 - 机制 / 模式：会员体系、积分权益、主理人机制、在地机构、社群招募、活动报名核销、内容沉淀、线索流转、数据看板。
 - 案例 / 对比：区域样本、项目样板、IP 活动、不同城市/社群/人群的表现差异。
 - 可复制启示：社群年度复盘结构、活动 IP 模板、主理人招募和激励模板、会员积分运营模板、项目上线 checklist。
 
-### Marketing Planning
+### 营销策划
 
-Use for 营销策划, campaign planning, launch planning, channel strategy, creative strategy, and integrated promotion.
+适用于营销策划、Campaign planning、项目发布、渠道策略、创意策略和整合推广。
 
-Required content emphasis:
+整理重点：
 
 - 原始内容完整整理：市场阶段、客户痛点、销售/传播挑战、客群洞察、策略主张、卖点、渠道、节奏、资源、预算、指标。
 - 机制 / 模式：整合传播路径、客户转化漏斗、内容分发机制、节点排期、线索承接、跨部门协同。
 - 案例 / 对比：竞品对标、不同渠道表现、不同客群响应、优秀话术/视觉/活动案例。
 - 可复制启示：营销方案结构、Campaign briefing 模板、渠道节奏表、卖点提炼方法、复盘指标表。
 
-### Commercial Operations
+### 商业运营
 
-Use for 商业运营, space operations, tenant/member operations, retail/community commercial projects, and offline business cases.
+适用于商业运营、空间运营、商户/会员运营、零售/社区商业项目和线下经营案例。
 
-Required content emphasis:
+整理重点：
 
 - 原始内容完整整理：项目/空间背景、客群、动线、消费场景、品牌/商户/物业/社群资源、招商与运营动作、经营数据。
 - 机制 / 模式：空间运营模型、招商机制、会员运营、活动带客、内容场景化、租金/销售/客流联动。
 - 案例 / 对比：商户组合、空间样板、业态对比、活动前后数据、不同项目运营差异。
 - 可复制启示：空间运营模板、招商资源表、活动带客模型、会员复购机制、最低执行标准。
 
-### Brand Event Retrospective
+### 品牌活动复盘
 
-Use for 品牌活动, IP 活动, 发布会, 线下活动, member events, and campaign retrospectives.
+适用于品牌活动、IP 活动、发布会、线下活动、会员活动和 Campaign 复盘。
 
-Required content emphasis:
+整理重点：
 
 - 原始内容完整整理：活动目标、主题、内容、流程、空间、互动、嘉宾、排期、人员、预算、供应商、传播、数据结果。
 - 机制 / 模式：活动策划机制、现场执行机制、用户动线、传播二次利用、社群/会员承接、风险管理。
 - 案例 / 对比：活动现场亮点、问题复盘、不同场次/城市/人群表现、竞品或历史活动对比。
 - 可复制启示：活动复盘模板、SOP、物料清单、供应商清单、风险清单、传播资产复用结构。
 
-### Online Product Development
+### 线上产品开发
 
-Use for 线上产品开发, 小程序, 会员系统, AI/product tools, dashboards, and operational platforms.
+适用于线上产品开发、小程序、会员系统、AI/product tools、dashboard 和运营平台。
 
-Required content emphasis:
+整理重点：
 
 - 原始内容完整整理：用户问题、业务目标、产品定位、功能模块、权限、后台能力、数据链路、运营流程、指标和版本变化。
 - 机制 / 模式：用户身份体系、权限体系、数据事件、积分/权益/支付/核销链路、运营看板、审核流程、系统联通。
 - 案例 / 对比：区域/项目上线案例、功能使用数据、版本前后变化、竞品或旧流程对比。
 - 可复制启示：产品 PRD 摘要模板、上线 checklist、数据指标表、后台配置说明、运营培训结构。
 
-## Structural Note Types
+## 结构型笔记类型
 
-### Case Study
+### 案例研究
 
-Use when the note analyzes one or more concrete cases.
+当笔记分析一个或多个具体案例时使用。
 
-Include: case background, full case facts, model, actions, data, outcomes, why it worked, comparison when relevant, replication conditions, and caveats.
+应包含：案例背景、完整案例事实、模式、行动、数据、结果、为什么有效、相关对比、复制条件和注意事项。
 
-### MOC / Index
+### MOC / 索引
 
-Use when the note is a map of content.
+当笔记是内容地图时使用。
 
-Include: scope, navigation table, key data, relationship map, missing materials, and next synthesis targets.
+应包含：范围、导航表、关键数据、关系图谱、已有材料、缺失材料和下一步可确认的整理方向。
 
-### Work Summary / Performance
+### 工作总结 / 业绩材料
 
-Use for annual, semi-annual, monthly, or individual performance materials.
+适用于年度、半年度、月度或个人工作总结。
 
-Include: objectives, completed work, measurable results, key examples, problems, next plan, and reusable work assets.
+应包含：目标、已完成工作、可量化结果、关键案例、问题、下一阶段计划和可复用工作资产。若是归档而非行动计划，不默认加入 `Next actions`。
 
-## Folder Guidance
+## 文件夹建议
 
-- `00-Agent(工作流沉淀）`: Agent workflows, MCP/CLI integrations, skill development, tooling experience.
-- `00-Meta(核心内容如AGENTS.md)`: knowledge-base rules, standards, indexes, governance notes.
-- `06-Archives(重要档案)`: business archives, community/member operations, campaign plans, commercial operations, brand events, online product development, source-derived reports.
+- `00-Agent(工作流沉淀）`：Agent 工作流、MCP/CLI 接入、skill 开发、工具经验。
+- `00-Meta(核心内容如AGENTS.md)`：知识库规则、整理规范、索引、治理说明。
+- `06-Archives(重要档案)`：业务档案、社群/会员运营、营销策划、商业运营、品牌活动、线上产品开发、来源型报告。
 
-When unsure, keep the existing folder and add better metadata instead of moving files.
+不确定时，优先保持已有文件夹位置，通过 metadata 和文件引用补充关系，不要随意移动文件。
