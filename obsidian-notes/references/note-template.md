@@ -18,7 +18,7 @@ confidence: medium
 related_projects: []
 related_notes: []
 tags:
-  - project-note
+  - 主题标签
 ---
 
 # 具体笔记标题
@@ -44,7 +44,7 @@ tags:
 > - 目标：
 > - 当前状态：
 > - 适用范围：
-> - 用户提供的 URL：如有微信或其他平台链接，必须在这里保留原始 URL。
+> - 用户提供的 URL：如有微信或其他平台链接，必须在这里保留为可点击 Markdown 链接，例如 `[微信原文](https://...)`。
 
 ## 原始内容完整整理
 

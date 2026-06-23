@@ -61,6 +61,7 @@ description: 将当前对话、项目资料、会议记录、技术排障、工�
 - 保持 `Key references` 和 `文件引用` 的边界：
   - 外部证据、URL、本地路径、页码、端点属于 `Key references`。
   - Obsidian 内部笔记关系属于 `文件引用`。
+- 网页 URL 在 `Context` 和 `Key references` 中优先写成可点击 Markdown 链接，例如 `[微信原文](https://...)`，不要用反引号包裹 URL。Windows 本地路径、API endpoint、命令和文件名仍使用反引号。
 - `tags` 只放稳定主题分类。不要把 `note_type`、年份、状态、带特殊符号的品牌写法放入 tags；例如不要写 `project-note`、`2022`、`樾+`、`樾⁺`、`社群+`。正文和标题可以保留正式品牌名，标签应转成稳定写法，例如 `樾生活方式`。
 - 对微信文章、URL、PDF、DOCX、EXCEL、PPTX，要在 `Key references` 中保留来源身份、访问/保存时间、页码/章节/工作表/幻灯片等可追溯信息。
 - 对 `06-Archives` 中的业务/项目归档笔记，不要写轻量指针笔记。必须提取并保留原始资料的主要内容：叙事主线、事实、数据、机制、案例、对比、决策和可复用启示。页码/slide 只是证据，不能替代正文。
@@ -77,6 +78,7 @@ description: 将当前对话、项目资料、会议记录、技术排障、工�
 - `Key takeaway` 只有一句可复用结论和一段高密度解释，不凑字数。
 - `摘要` 恰好三条 bullet，且不重复 Key takeaway 段落。
 - `Context` 简洁说明背景、目标、状态和适用范围；用户提供的 URL 在这里可见。
+- 用户提供的网页 URL 在 `Context` 和 `Key references` 中使用 Markdown 链接格式，确保可点击跳转。
 - 工作项目归档笔记正文足够完整，读者无需重新打开原始文件即可理解核心内容。
 - `后续可复用关键信息` 不重复来源路径或 URL，只保留复用口径、模板沉淀、数据口径、机制抽象、适用条件等内容。
 - `Key references` 只包含外部证据、用户 URL、本地文件路径、repo 路径、API endpoint、页码或章节。
