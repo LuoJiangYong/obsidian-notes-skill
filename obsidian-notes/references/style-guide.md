@@ -39,7 +39,7 @@
 - `created_at`：本地日期，格式 `YYYY-MM-DD`。
 - `updated_at`：本地日期，格式 `YYYY-MM-DD`；新建笔记时与 `created_at` 相同。
 - `created_method`：简洁说明创建方式，如 `pdf-to-obsidian-note`、`url-to-obsidian-note`。
-- `source`：如 `conversation`、`meeting`、`pdf`、`url`、`document`、`repo`、`manual`。
+- `source`：如 `conversation`、`meeting`、`pdf`、`url`、`document`、`repo`、`manual`、`url-and-document`、`url-and-images`。不要写成长句说明；详细来源放入 `Key references`。
 - `project`：明确项目或业务名称。
 - `topic`：具体主题。
 - `note_type`：常用值包括 `agent-workflow`、`project-note`、`technical-note`、`decision-record`、`reference-note`、`business-report`。
@@ -48,7 +48,15 @@
 - `confidence`：`high`、`medium` 或 `low`。
 - `related_projects`：相关项目列表，可为空。
 - `related_notes`：相关 Obsidian 笔记标题列表，可为空；这些笔记应在 `文件引用` 中解释关系。
-- `tags`：2-6 个标签。
+- `tags`：2-6 个稳定主题标签。
+
+`tags` 规范：
+
+- 只放主题分类，不放 `note_type`、年份、状态或创建方式。
+- 禁止纯数字标签，例如 `2022`、`2026`。
+- 禁止含特殊符号的标签，例如 `樾+`、`樾⁺`、`社群+`、`A/B`。
+- 正文、标题和内部链接可以保留正式品牌写法；标签要转成稳定写法，例如 `樾+` 写成 `樾生活方式`。
+- 不要写与字段重复的标签，例如 `project-note`、`validated`、`url`。
 
 不要在 Properties 中加入 `links`。URL、本地路径和外部证据统一放入 `## Key references`；Obsidian 内部笔记标题放入 `related_notes` 并在 `## 文件引用` 中说明关系。
 
@@ -236,6 +244,8 @@ Agent/技术笔记可以使用：
 
 - YAML metadata 完整，且没有 `links` 属性。
 - `related_notes` 中的笔记都在 `文件引用` 中有关系说明。
+- `related_notes` 不应在明显存在同主题、同目录或同项目笔记时留空；写入前应检索现有 vault 关系。
+- `tags` 不包含纯数字、`note_type` 值、状态值或特殊符号标签。
 - `Key takeaway` 是一句强结论 + 一段实用解释。
 - `摘要` 恰好三条。
 - `Context` 能快速说明来源、目标、状态和适用范围。
@@ -244,5 +254,6 @@ Agent/技术笔记可以使用：
 - `后续可复用关键信息` 不重复来源路径或 URL。
 - `Key references` 只包含外部证据、路径、URL、endpoint、页码或章节。
 - `文件引用` 只包含 Obsidian 内部 wiki 链接，不默认生成 `后续可延展`。
+- 不保留 `待关联`、`待补充`、`可后续关联` 这类占位链接；无法确认关系时写 `- None captured`。
 - 没有写入密钥、API key、cookie、token、auth code 或 bearer 值，除非用户明确要求。
 - 中文标题和正文按 UTF-8 读取时显示正常。

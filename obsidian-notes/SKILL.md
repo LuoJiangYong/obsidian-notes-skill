@@ -23,7 +23,7 @@ description: 将当前对话、项目资料、会议记录、技术排障、工�
 5. 选择存放目录。Agent 工作流和工具设置默认放入 `00-Agent(工作流沉淀）/`；业务资料、案例、报告、活动复盘和来源归档类笔记优先放入 `06-Archives(重要档案）/`，除非用户指定其他位置。
 6. 使用 `references/note-template.md` 起草笔记。
 7. 写入前应用 `references/style-guide.md` 的样式和质量要求。
-8. 在 `## 文件引用` 中添加有意义的 Obsidian 内部 wiki 链接，仅链接已经存在或明确相关的笔记。
+8. 写入前检索同目录、同主题或同项目已有笔记，补齐 `related_notes` 和 `## 文件引用`。不要写 `待关联` 这类占位内容。
 9. 写入前执行质量检查。
 10. 如果可用 Obsidian MCP 或 Local REST API，优先写入并读回验证标题、Properties、`Key takeaway`、`摘要`、`后续可复用关键信息`、`Key references` 和 `文件引用` 是否存在。若不可用，则提供 Markdown 供手动写入。
 
@@ -61,6 +61,7 @@ description: 将当前对话、项目资料、会议记录、技术排障、工�
 - 保持 `Key references` 和 `文件引用` 的边界：
   - 外部证据、URL、本地路径、页码、端点属于 `Key references`。
   - Obsidian 内部笔记关系属于 `文件引用`。
+- `tags` 只放稳定主题分类。不要把 `note_type`、年份、状态、带特殊符号的品牌写法放入 tags；例如不要写 `project-note`、`2022`、`樾+`、`樾⁺`、`社群+`。正文和标题可以保留正式品牌名，标签应转成稳定写法，例如 `樾生活方式`。
 - 对微信文章、URL、PDF、DOCX、EXCEL、PPTX，要在 `Key references` 中保留来源身份、访问/保存时间、页码/章节/工作表/幻灯片等可追溯信息。
 - 对 `06-Archives` 中的业务/项目归档笔记，不要写轻量指针笔记。必须提取并保留原始资料的主要内容：叙事主线、事实、数据、机制、案例、对比、决策和可复用启示。页码/slide 只是证据，不能替代正文。
 - 写入已有笔记时，先读取现有内容，再尽量做定向修改。只有创建新笔记或经用户同意替换生成稿时，才进行整篇替换。
@@ -71,6 +72,8 @@ description: 将当前对话、项目资料、会议记录、技术排障、工�
 写入或更新前，确认：
 
 - YAML 包含 `created_at`、`updated_at`、`source`、`project`、`topic`、`note_type`、`knowledge_type`、`status`、`confidence`、`related_projects`、`related_notes` 和 `tags`。
+- `tags` 不包含纯数字、`note_type` 值、状态值或特殊符号标签；年份应放标题、topic 或正文，类型应放 `note_type`。
+- 写入业务/项目归档笔记前已检索现有知识库关系；`related_notes` 中的笔记必须在 `文件引用` 中解释，且不要保留 `待关联` 占位。
 - `Key takeaway` 只有一句可复用结论和一段高密度解释，不凑字数。
 - `摘要` 恰好三条 bullet，且不重复 Key takeaway 段落。
 - `Context` 简洁说明背景、目标、状态和适用范围；用户提供的 URL 在这里可见。
