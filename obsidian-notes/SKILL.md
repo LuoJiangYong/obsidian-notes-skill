@@ -43,7 +43,7 @@ description: 将当前对话、项目资料、会议记录、技术排障、工�
   - 工作项目归档笔记：只放复用口径、模板沉淀、数据口径、机制抽象、适用条件和注意事项。
   - Agent/技术笔记：可放路径、命令、端点、配置键、验证方式和已知坑点。
   - 不要在这里重复原始文件路径、URL 或页码；这些统一放入 `Key references`。
-- `## Key references`：唯一外部来源区，放用户提供 URL、原始文件路径、抽取文本路径、官方文档、API endpoint、页码/章节/发布时间等证据来源。
+- `## Key references`：唯一外部来源区，放用户提供 URL、原始文件路径、官方文档、API endpoint、页码/章节/发布时间等证据来源。临时抽取文本、HTML 抓取件、工作区副本只作为消化过程材料；笔记完成后默认不保留引用，除非它本身是长期可复核来源。
 - `## 文件引用`：只放 Obsidian 内部 wiki 链接，表达与已有笔记的主要知识关系。
 
 默认不要在工作项目归档笔记中加入 `## Next actions`。只有当笔记本身是行动计划、任务追踪，或用户明确要求后续行动时才加入。
@@ -87,7 +87,7 @@ description: 将当前对话、项目资料、会议记录、技术排障、工�
 
 ## Obsidian 写入建议
 
-如果 MCP 工具可用，优先顺序：
+如果 MCP 工具可用，优先顺序（这是日常笔记操作的推荐路径；插件开发调试场景在 Obsidian CLI 可用时改用 CLI）：
 
 1. `vault_write`：创建新笔记。
 2. `vault_read`：读回验证写入结果。
@@ -101,6 +101,60 @@ description: 将当前对话、项目资料、会议记录、技术排障、工�
 - JSON 请求使用无 BOM 的 UTF-8。
 - Header 包含 `Authorization: Bearer <token>`、`Content-Type: application/json`、`Accept: application/json, text/event-stream`。
 - 初始化后保留 `Mcp-Session-Id`，后续请求继续使用。
+
+## 与其它 Skill 的协作
+
+本 skill 是 Obsidian 知识库笔记的结构权威。加载本 skill 时，其它 Obsidian 相关 skill 只能作为语法、文件格式或调试能力补充，不能覆盖本 skill 对笔记结构、Properties、内容完整性和引用边界的要求。
+
+### `obsidian-markdown`：Obsidian 语法手册
+
+使用场景：需要写 embeds、注释 `%%`、LaTeX 数学、Mermaid 图表、脚注、block links 等 Obsidian 特有 Markdown 语法。
+
+分工边界：
+
+- 本 skill 定义笔记应该包含什么结构、哪些 Properties 字段、哪些 callout 样式、哪些内容质量要求。
+- `obsidian-markdown` 只定义具体 Obsidian Markdown 语法怎么写。
+- Properties 字段以本 skill 为准；默认不要因为 `obsidian-markdown` 的通用示例而新增 `title`、`date` 等字段。
+- `aliases`、`cssclasses` 只有在用户明确要求、已有 vault 规范需要，或 Obsidian 视图确实依赖时才补充。
+- Callout 规范以本 skill 为准；`obsidian-markdown` 的 callout 类型列表仅作语法参考。
+
+### `obsidian-bases`：`.base` 视图
+
+使用场景：创建或编辑 `.base` 文件，构建笔记的表格、卡片或列表视图。
+
+分工边界：
+
+- 本 skill 不定义 `.base` 文件格式；遇到 `.base` 文件创建或编辑时委托给 `obsidian-bases`。
+- 本 skill 定义的 Properties 字段，例如 `note_type`、`project`、`topic`、`status`、`confidence`、`tags`，可作为 `.base` 的过滤、分组和排序字段。
+- `.base` 视图不得反向改变本 skill 的 YAML 字段规范。
+
+### `json-canvas`：`.canvas` 图谱
+
+使用场景：创建或编辑 `.canvas` 文件，构建知识图谱、思维导图、流程图或项目关系图。
+
+分工边界：
+
+- 本 skill 不定义 `.canvas` 文件格式；遇到 Canvas 文件创建或编辑时委托给 `json-canvas`。
+- Canvas 的 file node 可以指向本 skill 生成的笔记。
+- 本 skill 负责保证被引用笔记的命名、结构和内部关系清晰；`json-canvas` 负责 Canvas JSON 结构正确。
+
+### `obsidian-cli`：命令行与插件调试
+
+使用场景：仅在 Obsidian CLI 可用，且任务涉及 MCP 不具备的能力时使用，例如插件热重载、截图验证、错误捕获、DOM/console 检查或版本对比。
+
+日常 vault 读写、搜索和补丁仍优先使用 MCP。
+
+| 场景 | 优先工具 |
+|---|---|
+| 日常笔记读写搜索 | MCP：`vault_read` / `vault_write` / `vault_patch` / search |
+| 分段精准补丁 | MCP：`vault_patch` |
+| 文档结构图 | MCP：`vault_get_document_map` |
+| 复杂查询 | MCP 暴露的 search/query 能力；如不可用则退回检索和读取 |
+| 插件热重载 | Obsidian CLI |
+| 错误捕获 | Obsidian CLI |
+| 截图验证 | Obsidian CLI |
+| DOM / console 检查 | Obsidian CLI |
+| 版本对比 | Obsidian CLI 或 Git，按任务场景选择 |
 
 ## 参考文件
 
