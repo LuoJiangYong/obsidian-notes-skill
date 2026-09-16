@@ -156,6 +156,16 @@ description: 将当前对话、项目资料、会议记录、技术排障、工�
 | DOM / console 检查 | Obsidian CLI |
 | 版本对比 | Obsidian CLI 或 Git，按任务场景选择 |
 
+### `defuddle`：网页正文提取
+
+使用场景：当用户提供普通网页 URL（文章、博客、在线文档、新闻稿）并要求读取、分析或整理为笔记时，优先用 `defuddle` 提取正文，再进行消化整理。
+
+分工边界：
+
+- `defuddle` 只负责“网页 → 干净正文”这一层（去除导航、广告、侧栏等杂物，输出 Markdown 或 JSON）；本 skill 负责消化整理、笔记结构、Properties、引用边界和质量检查。
+- 提取产物属于消化过程材料：来源身份（URL、标题）按 `references/source-types.md` 的规则进入 `Context` 和 `Key references`；临时抽取文本默认不长期保留引用。
+- 需要 JavaScript 渲染的页面、登录墙等提取失败场景，按 `defuddle` 技能自身文档处理（如浏览器工具兜底）；本 skill 不定义提取实现。
+
 ### `knap`：数据 → 笔记渲染
 
 使用场景：当用户要求把 JSON/CSV 等结构化数据、或已提取的文本（如网页正文）按模板转成一条或多条 Markdown 笔记时（含批量生成），交给官方 `knap` 完成渲染。
