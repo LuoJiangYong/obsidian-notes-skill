@@ -28,7 +28,7 @@ Send anything to your AI — conversations, project materials, meeting notes, we
 
 ## 与官方 Obsidian 技能的协作边界
 
-本 skill 是笔记**结构的权威**；其它技能只补充语法、格式、提取或渲染能力，不得反向改变结构规范（协作对象：[obsidian-skills](https://github.com/kepano/obsidian-skills)）：
+本 skill 是笔记**结构的权威**；其它技能只补充语法、格式、提取或渲染能力，不得反向改变结构规范。下表六个协作对象均来自 Obsidian 官方技能仓库 [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills)，点击可跳转查看各技能的完整说明：
 
 | 技能 | 分工边界 |
 |---|---|
@@ -75,4 +75,4 @@ obsidian-notes-skill/
 
 ## License
 
-待定
+本项目采用 [MIT License](LICENSE)（© 2026 Jiang Yong Luo）。
