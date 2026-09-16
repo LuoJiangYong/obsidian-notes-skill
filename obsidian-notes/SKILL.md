@@ -156,6 +156,17 @@ description: 将当前对话、项目资料、会议记录、技术排障、工�
 | DOM / console 检查 | Obsidian CLI |
 | 版本对比 | Obsidian CLI 或 Git，按任务场景选择 |
 
+### `knap`：数据 → 笔记渲染
+
+使用场景：当用户要求把 JSON/CSV 等结构化数据、或已提取的文本（如网页正文）按模板转成一条或多条 Markdown 笔记时（含批量生成），交给官方 `knap` 完成渲染。
+
+分工边界：
+
+- `knap` 只负责“数据 → Markdown 渲染”这一层：模板、过滤器、批量生成和管道衔接；本 skill 定义笔记应该包含什么结构、哪些 Properties 字段、哪些 callout 样式、哪些内容质量要求和引用边界。
+- `knap` 渲染产物一律视为初稿：写入 vault 前，必须按 `references/note-template.md` 核对结构，并走本 skill 的质量检查和读回验证。
+- frontmatter 字段集合以本 skill 为准；`knap` 的 `yaml_property` 等过滤器只是生成手段，不得反向增减字段或改变字段规范。
+- `knap` 的模板语法、CLI 用法与版本以其官方 skill / 文档为准；本 skill 不定义模板语言。
+
 ## 参考文件
 
 - 起草笔记前阅读 `references/note-template.md`。
